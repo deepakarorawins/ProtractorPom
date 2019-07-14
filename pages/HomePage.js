@@ -7,6 +7,8 @@ var HomePage = function(){
 	
 	this.loginAsBankManager = function () {
 		element(by.ngClick("manager()")).click();
+		
+		return require('./AddCustomerDetails.js');
 	};
 	
 	

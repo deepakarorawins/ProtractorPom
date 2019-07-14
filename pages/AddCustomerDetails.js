@@ -7,19 +7,22 @@ var AddCustomerDetails = function() {
 
 	this.gotoAddCustomer = function() {
 		element(by.ngClick("addCust()")).click();
+		return this;
 	};
 
 	this.gotoOpenAccount = function() {
 		element(by.ngClick("openAccount()")).click();
+		return this;
 	};
 
 	this.gotoSearchCustomer = function() {
 		element(by.buttonText("Customers")).click();
+		return this;
 	};
 
-	this.addCustomerInfo = function(fName, lName, postCode) {
-		element(by.model("fName")).sendKeys(fName);
-		element(by.model("lName")).sendKeys(lName);
+	this.addCustomerInfo = function(fname, lname, postCode) {
+		element(by.model("fName")).sendKeys(fname);
+		element(by.model("lName")).sendKeys(lname);
 		element(by.model("postCd")).sendKeys(postCode);
 		element(by.css(".btn.btn-default")).click();
 
@@ -32,6 +35,7 @@ var AddCustomerDetails = function() {
 
 		alertDialog.accept();
 		browser.sleep(2000);
+		return this;
 	};
 
 	this.openAccount = function(customer, currency) {
