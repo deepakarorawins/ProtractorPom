@@ -2,16 +2,17 @@ var SelectWrapper = require('../util/select-wrapper.js');
 var locator = require('../util/customlocators.js');
 var user = new SelectWrapper(by.id("userSelect"));
 var currencyList = new SelectWrapper(by.id("currency"));
+var OR = require('../json/OR.json');
 
 var AddCustomerDetails = function() {
 
 	this.gotoAddCustomer = function() {
-		element(by.ngClick("addCust()")).click();
+		element(by.ngClick(OR.locators.addcustomerdetailspage.addcustomerbutton)).click();
 		return this;
 	};
 
 	this.gotoOpenAccount = function() {
-		element(by.ngClick("openAccount()")).click();
+		element(by.ngClick(OR.locators.addcustomerdetailspage.openAccount)).click();
 		return this;
 	};
 
@@ -21,10 +22,10 @@ var AddCustomerDetails = function() {
 	};
 
 	this.addCustomerInfo = function(fname, lname, postCode) {
-		element(by.model("fName")).sendKeys(fname);
-		element(by.model("lName")).sendKeys(lname);
-		element(by.model("postCd")).sendKeys(postCode);
-		element(by.css(".btn.btn-default")).click();
+		element(by.model(OR.locators.addcustomerdetailspage.fName)).sendKeys(fname);
+		element(by.model(OR.locators.addcustomerdetailspage.lName)).sendKeys(lname);
+		element(by.model(OR.locators.addcustomerdetailspage.pCode)).sendKeys(postCode);
+		element(by.css(OR.locators.addcustomerdetailspage.addcustomer)).click();
 
 		browser.sleep(2000);
 

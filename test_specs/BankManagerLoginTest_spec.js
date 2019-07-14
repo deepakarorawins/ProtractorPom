@@ -1,14 +1,17 @@
 
 var basepage = require('../pages/BasePage.js')
+var OR = require('../json/OR.json');
+
 describe("Bank Manager Login Test", function() {
 	
 	var home_page = require('../pages/HomePage.js');
 	
 	it("Login as Bank Manager", function() {
 		
-			basepage.navigateToUrl("http://www.way2automation.com/angularjs-protractor/banking/#/login");
-			home_page.loginAsBankManager();
-			//home_page.loginAsBankManager().gotoAddCustomer().addCustomerInfo("Raman", "Arora", "123456");
+			basepage.navigateToUrl(OR.testsiteurl);
+			//home_page.loginAsBankManager();
+			var customer = home_page.loginAsBankManager();
+			customer.gotoAddCustomer().addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName, OR.locators.addcustomerdetailspage.testdata.lName, OR.locators.addcustomerdetailspage.testdata.pCode);
 			var pageTitle = basepage.getPageTitle();
 			expect(pageTitle).toEqual("Protractor practice website - Banking App");
 			browser.sleep(2000);
