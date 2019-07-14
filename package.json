@@ -1,0 +1,19 @@
+{
+  "name": "protractorpom",
+  "version": "1.0.0",
+  "description": "dee prtractor pom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakarorawins/ProtractorPom.git"
+  },
+  "author": "dee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepakarorawins/ProtractorPom/issues"
+  },
+  "homepage": "https://github.com/deepakarorawins/ProtractorPom#readme"
+}
