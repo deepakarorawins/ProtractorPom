@@ -1,5 +1,5 @@
 
-var logger = require('../log/log');
+const logger = require('../log/logger');
 var basepage = require('../pages/BasePage.js')
 var OR = require('../json/OR.json');
 

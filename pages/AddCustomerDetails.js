@@ -1,3 +1,4 @@
+const logger = require('../log/logger');
 var SelectWrapper = require('../util/select-wrapper.js');
 var locator = require('../util/customlocators.js');
 var user = new SelectWrapper(by.id("userSelect"));
@@ -8,33 +9,44 @@ var AddCustomerDetails = function() {
 
 	this.gotoAddCustomer = function() {
 		element(by.ngClick(OR.locators.addcustomerdetailspage.addcustomerbutton)).click();
+		logger.info("Successfully clicked on link: Add Customer")
+
 		return this;
 	};
 
 	this.gotoOpenAccount = function() {
 		element(by.ngClick(OR.locators.addcustomerdetailspage.openAccount)).click();
+		logger.info("Successfully clicked on link: Open Account")
 		return this;
 	};
 
 	this.gotoSearchCustomer = function() {
 		element(by.buttonText("Customers")).click();
+		logger.info("Successfully clicked on link: Customers")
 		return this;
 	};
 
 	this.addCustomerInfo = function(fname, lname, postCode) {
 		element(by.model(OR.locators.addcustomerdetailspage.fName)).sendKeys(fname);
+		logger.info("Successfully entered text in First Name textbox: "+fname)
 		element(by.model(OR.locators.addcustomerdetailspage.lName)).sendKeys(lname);
+		logger.info("Successfully entered text in Last Name textbox: "+lname)
 		element(by.model(OR.locators.addcustomerdetailspage.pCode)).sendKeys(postCode);
+		logger.info("Successfully entered text in Post Code textbox: "+postCode)
 		element(by.css(OR.locators.addcustomerdetailspage.addcustomer)).click();
+		logger.info("Successfully clicked on button: Add Customer")
 
 		browser.sleep(2000);
 
 		var alertDialog = browser.switchTo().alert();
 		alertDialog.getText().then(function(text) {
-			console.log(text);
+			logger.info("Alert appeared: "+text);
+			//console.log(text);
+			alertDialog.accept();
+			logger.info("Successfully accepted alert")
 		});
 
-		alertDialog.accept();
+		
 		browser.sleep(2000);
 		return this;
 	};
